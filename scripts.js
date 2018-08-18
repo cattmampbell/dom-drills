@@ -1,70 +1,127 @@
 // Listens for the page to load, then runs a function().
 document.addEventListener("DOMContentLoaded", function() {
-    let divContainer = document.createElement("div"); // Creates <div> tag.
-    divContainer.className = "header-container"; // Gives a class name / applies styling via Bootstrap 4.
+    let div = document.createElement("div"); // Creates <div> tag.
+    div.className = "header-container"; // Gives a class name / applies styling via Bootstrap 4.
+    document.body.appendChild(div); // Places the <div class="header-container"> tag into the <body> element.
 
-    let hOne = document.createElement("h1"); // Creates a <h1> element.
-    let hOneTxt = document.createTextNode("This is an h1!"); // Creates textual content.
-    hOne.appendChild(hOneTxt); // Places the textual content into the <h1> element.
-    hOne.className = "h1"; // Assigns a class of "h1".
-    divContainer.appendChild(hOne); // Places the <h1> element into the <div class="header-container"> tag.
-    document.body.appendChild(divContainer); // Places the <div class="header-container"> tag into the <body> element.
+    let h1 = document.createElement("h1"); // Creates an <h1> element.
+    let h1Txt = document.createTextNode("This is an h1!"); 
+    h1.appendChild(h1Txt); 
+    h1.className = "h1"; 
+    div.appendChild(h1); 
 
-    let hTwo = document.createElement("h2"); // Creates a <h2> element.
-    let hTwoTxt = document.createTextNode("This is an h2!"); // Creates textual content.
-    hTwo.appendChild(hTwoTxt); // Places the textual content into the <h2> element.
-    hTwo.className = "h2"; // Assigns a class of "h2".
-    divContainer.appendChild(hTwo); // Places the <h2> element into the <div> tag.
-    
-    let hThree = document.createElement("h3"); // Creates a <h3> element.
-    let hThreeTxt = document.createTextNode("This is an h3!");
-    hThree.appendChild(hThreeTxt);
-    hThree.className = "h3"; // Assigns a class of "h3".
-    divContainer.appendChild(hThree);
+    let h2 = document.createElement("h2"); 
+    let h2Txt = document.createTextNode("This is an h2!"); // Creates textual content. 
+    h2.appendChild(h2Txt); 
+    h2.className = "h2"; 
+    div.appendChild(h2); 
 
-    let hFour = document.createElement("h4"); // Creates a <h4> element.
-    let hFourTxt = document.createTextNode("This is an h4!");
-    hFour.appendChild(hFourTxt);
-    hFour.className = "h4"; // Assigns a class of "h4".
-    divContainer.appendChild(hFour);
+    let h3 = document.createElement("h3"); 
+    let h3Txt = document.createTextNode("This is an h3!");
+    h3.appendChild(h3Txt); // Places the textual content into the <h3> element.
+    h3.className = "h3"; 
+    div.appendChild(h3);
 
-    let hFive = document.createElement("h5"); // Creates a <h5> element.
-    let hFiveTxt = document.createTextNode("This is an h5!");
-    hFive.appendChild(hFiveTxt);
-    hFive.className = "h5"; // Assigns a class name of "h5".
-    divContainer.appendChild(hFive);
+    let h4 = document.createElement("h4"); 
+    let h4Txt = document.createTextNode("This is an h4!");
+    h4.appendChild(h4Txt);
+    h4.className = "h4"; // Assigns a class of "h4".
+    div.appendChild(h4);
 
-    let hSix = document.createElement("h6"); // Creates a <h6> element.
-    let hSixTxt = document.createTextNode("This is an h6!");
-    hSix.appendChild(hSixTxt);
-    hSix.className = "h6"; // Assigns a class name of "h6".
-    divContainer.appendChild(hSix);
+    let h5 = document.createElement("h5");
+    let h5Txt = document.createTextNode("This is an h5!");
+    h5.appendChild(h5Txt);
+    h5.className = "h5"; 
+    div.appendChild(h5); // Places the <h5> element into the <div class="header-container"> tag.
+
+    let h6 = document.createElement("h6"); 
+    let h6Txt = document.createTextNode("This is an h6!");
+    h6.appendChild(h6Txt);
+    h6.className = "h6";
+    div.appendChild(h6);
 
     // An array of 'myColors'.
     let myColors = [
-        "#007bff", // Primary
-        "#6c757d", // Secondary
-        "#28a745", // Success
-        "#dc3545", // Danger
-        "#ffc107", // Warning
-        "#17a2b8", // Info
-        "#f8f9fa", // Light
-        "#343a40" // Dark
+        "#007bff", // Primary (Blue)
+        "#6c757d", // Secondary (Dark Grey)
+        "#28a745", // Success (Green)
+        "#dc3545", // Danger (Red)
+        "#ffc107", // Warning (Yellow)
+        "#17a2b8", // Info (Teal)
+        "#f8f9fa", // Light (Light Grey)
+        "#343a40" // Dark (Black)
     ];
 
-    // Listens for the <h1> to be clicked, then runs a function().
-    hOne.addEventListener("click", function() {
+    // Creates getRandomColor() function.
+    function getRandomColor() {
         // Randomly selects an item from 'myColors'.
-        let myNewColor = myColors[Math.floor(Math.random()*myColors.length)];
+        let myRandomColor = myColors[Math.floor(Math.random()*myColors.length)];
         // console.log(myNewColor); // Should print - Each item (hexadecimal color values).
-        hOne.style.color = myNewColor;
+        return myRandomColor; // Returns hexadecimal color value.
+    };
+
+    // Listens for the <h1> to be clicked, then runs a function().
+    h1.addEventListener("click", function() {
+        let myRandomColor = getRandomColor();
+        h1.style.color = myRandomColor;
+    });
+    // Listens for the <h2> to be clicked, then runs a function().
+    h2.addEventListener("click", function() {
+        let myRandomColor = getRandomColor();
+        h2.style.color = myRandomColor;
+    });
+    // Listens for the <h3> to be clicked, then runs a function().
+    h3.addEventListener("click", function() {
+        let myRandomColor = getRandomColor();
+        h3.style.color = myRandomColor;
+    });
+    // Listens for the <h4> to be clicked, then runs a function().
+    h4.addEventListener("click", function() {
+        let myRandomColor = getRandomColor();
+        h4.style.color = myRandomColor;
+    });
+    // Listens for the <h5> to be clicked, then runs a function().
+    h5.addEventListener("click", function() {
+        let myRandomColor = getRandomColor();
+        h5.style.color = myRandomColor;
+    });
+    // Listens for the <h6> to be clicked, then runs a function().
+    h6.addEventListener("click", function () {
+        let myRandomColor = getRandomColor();
+        h6.style.color = myRandomColor;
     });
 
-    let btn = document.createElement("button"); // Creates a <button> element.
+    let btn = document.createElement("button"); 
     let btnTxt = document.createTextNode("Click to add new list item"); 
     btn.appendChild(btnTxt);
-    btn.className = "btn btn-lg btn-outline-secondary"; // Gives a class name / applies styling via Bootstrap 4.
-    divContainer.appendChild(btn);
+    btn.className = "btn btn-lg btn-outline-secondary my-2";
+    div.appendChild(btn);
 
-    // Listens for the <button> to be clicked, then runs a function().
+    let ul = document.createElement("ul"); 
+    div.appendChild(ul); 
+
+    let liCount = 0; // Creates 'liCount' with an initial value of 0.
+
+    // Creates addToList() function.
+    function addToList() {
+        liCount++; // Adds +1 to 'liCount' with each iteration / every time the function() is called.
+        let li = document.createElement("li"); 
+        let liTxt = document.createTextNode("This is list item " + liCount);
+        li.appendChild(liTxt);
+        ul.appendChild(li);
+
+        // Listens for the <li> to be clicked, then runs a function().
+        li.addEventListener("click", function() {
+            let myRandomColor = getRandomColor();
+            li.style.color = myRandomColor;
+        });
+
+        // Listens for the <li> to be double clicked, then runs a function().
+        li.addEventListener("dblclick", function() {
+            this.remove();
+        });
+    };
+
+    // Listens for the <button> to be clicked, then runs  addToList() function.
+    btn.addEventListener("click", addToList);
 });
